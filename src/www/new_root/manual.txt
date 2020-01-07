@@ -1,0 +1,47 @@
+ ќћѕ»Ћя÷»я » »—ѕќЋ№«ќ¬јЌ»≈ ERL_INTERFACE ѕќƒ MINGW
+------------------------------------------------------
+ставим mingw + msys (full). в дефолтные каталоги
+идем в каталог файловой системы msys у мен€ это был c:\MinGW\msys\1.0\
+идем в домашнюю папку юзера под которым работаем и создаем папку otp_src
+c:\MinGW\msys\1.0\home\arksu\otp_src\
+копируем туда сорцы ерланга
+
+запускаем msys shell
+	cd ~/otp_src/
+	./configure
+	export ERL_TOP=~/otp_src
+
+указываем где лежат сорцы
+
+создаем каталог $TARGET в папке make у мен€ это был i686-pc-mingw32
+должно получитс€ c:\MinGW\msys\1.0\home\arksu\otp_src\make\i686-pc-mingw32\
+копируем туда файл otp.mk.in из c:\MinGW\msys\1.0\home\arksu\otp_src\make\
+убираем .in в конце. получитс€ : c:\MinGW\msys\1.0\home\arksu\otp_src\make\i686-pc-mingw32\otp.mk
+
+создаем каталог c:\MinGW\msys\1.0\home\arksu\otp_src\lib\erl_interface\src\i686-pc-mingw32\
+копируем туда Makefile из каталога c:\MinGW\msys\1.0\home\arksu\otp_src\lib\erl_interface\src\
+
+правим файл c:\MinGW\msys\1.0\home\arksu\otp_src\lib\erl_interface\src\i686-pc-mingw32\Makefile
+добавл€ем LIBS = -lwsock32
+
+топаем в каталог с erl_interface
+	cd ~/otp_src/lib/erl_interface/
+
+запускаем 
+	make
+начнетс€ сборка. ждем.
+на выходе у нас будут .a файлы нужные дл€ линковки при использовании либы erl_interface
+
+копируем файлы из c:\MinGW\msys\1.0\home\arksu\otp_src\lib\erl_interface\obj\i686-pc-mingw32\
+в c:\MinGW\msys\1.0\home\arksu\otp_src\lib\erl_interface\lib\ предварительно его создав
+
+-----------------------------
+приступаем к компил€ции примера
+
+создаем папку ~/port
+копируем туда сорцы
+переходим в папку
+	cd ~/port
+
+запускаем компил€цию
+	gcc -o extprg -I/home/arksu/otp_src/lib/erl_interface/include -L/home/arksu/otp_src/lib/erl_interface/lib complex.c erl_comm.c ei.c -lerl_interface -lei -lwsock32

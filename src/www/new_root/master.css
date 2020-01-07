@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+a{
+text-decoration:none;
+color:#000;
+}
+body{
+font: 50px Eccentric Std, Arial, sans-serif;
+background:#000000;
+}
+.scroll{
+display:block;
+background: url("scroll.jpg")center no-repeat;
+background-color:#000000;
+font-color:#ffffff;
+width:1000px;
+height:938px;
+}
+registrationbtn{
+width:250px;
+text-shadow: 0 0 5px #452200;
+display:block;
+position:relative;
+top:300;
+-o-transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease-out;
+-moz-transition: all 0.5s ease;
+}
+registrationbtn:hover{color:#ffffff;}
+registrationbtn:clicked{color:#555;}
+downloadbtn{
+width:200px;
+text-shadow: 0 0 5px #452200;
+display:block;
+position:relative;
+top:300;
+-o-transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease-out;
+-moz-transition: all 0.5s ease;
+}
+downloadbtn:hover{color:#ffffff;}
+forumbtn{
+width:150px;
+text-shadow: 0 0 5px #452200;
+display:block;
+position:relative;
+top:300;
+-o-transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease-out;
+-moz-transition: all 0.5s ease;
+}
+forumbtn:hover{color:#ffffff;}
+serverstatuslbl{
+display:block;
+position:relative;
+text-align:right;
+top:370;
+left:-250;
+}
+playersonlinelbl{
+display:block;
+position:relative;
+text-align:right;
+top:352;
+left:-250;
+}

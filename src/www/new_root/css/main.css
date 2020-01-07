@@ -1,0 +1,36 @@
+#content
+{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+
+.links_container
+{
+    background-color: white;
+    width: 650px;
+    padding: 10px 10px 20px 15px;
+    margin: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10 px;
+    border-radius: 10px;
+    border: 2px solid #a4a4a4;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.link
+{
+    background-color: transparent;
+    margin: 5px;
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+
+}

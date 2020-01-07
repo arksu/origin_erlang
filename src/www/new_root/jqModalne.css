@@ -1,0 +1,112 @@
+/* jqModal base Styling courtesy of;
+	Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied,
+	the Window's z-index value will be set to 3000 by default (in jqModal.js). You
+	can change this value by either;
+	  a) supplying one via CSS
+	  b) passing the "zIndex" parameter. E.g.  (window).jqm({zIndex: 500}); */
+	
+.jqmWindow {
+    display: none;
+    
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    
+    margin-left: -150px;
+    width: 400px;
+    
+    background-color: #e6d1a7;
+	background: url('./reg.png') no-repeat center;
+    color: #333;
+    padding: 12px;
+}
+
+.jqmOverlay { background-color: #000; }
+
+/* Background iframe styling for IE6. Prevents ActiveX bleed-through (<select> form elements, etc.) */
+* iframe.jqm {position:absolute;top:0;left:0;z-index:-1;
+	width: expression(this.parentNode.offsetWidth+'px');
+	height: expression(this.parentNode.offsetHeight+'px');
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+ #inputArea
+  {
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  background-color: #e0caa0;
+  background:transparent;
+  padding: 10px;
+  width:360px;
+  }
+  #inputArea input, #inputArea textarea
+  {
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+  display: block;
+  padding: 4px;
+  width: 360px;
+  }
+ .activeField
+  {
+  font-size: 30px;
+  width: 360px;
+  background-image: none;
+  background-color: #e0caa0;
+  background:transparent;
+  border: solid 1px #774e28;
+  }
+  .idle
+  {
+  font-size: 30px;
+  width: 360px;
+  border: solid 1px #774e28;
+  background-repeat: repeat-x;
+  background-position: top;
+  background-color:#e0caa0;
+  background:transparent;
+  }
+  .button
+  {
+  font: 50px Eccentric Std, Arial, sans-serif;
+  background:transparent;
+  border:none;
+  }
+  .activeButton
+  {
+  font: 50px Eccentric Std, Arial, sans-serif;
+  background:transparent;
+  border:none;
+  }
+  			a
+			{
+			text-decoration:none;
+			color:black;
+			}
+			#previewLayer
+			{
+				width: 380px;
+				padding: 20px;
+			}
+			#previewContent
+			{
+				width: 100%;
+				height: 365px;
+			}
+			#handle
+			{
+				width: 100%;
+				padding: 4px;				
+				background-color: #9c9;
+				text-align: right;
+				font-size:10px;
+			}

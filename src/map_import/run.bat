@@ -1,0 +1,1 @@
+map_import.exe d:\map.png d:\obj.png

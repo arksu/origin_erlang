@@ -1,0 +1,96 @@
+
+
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `cookie` blob NOT NULL,
+  `time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `online` int(1) NOT NULL,
+  `last_char` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL COMMENT 'статус регистрации (0- ок, 1-ждем мыла, 3-отказано)',
+  `reg_id` varchar(255) NOT NULL COMMENT 'ид регистрации',
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+)  ;
+
+
+CREATE TABLE IF NOT EXISTS `char` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` int(11) NOT NULL,
+  `access_level` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `x` int(11) NOT NULL,
+  `y` int(11) NOT NULL,
+  `l` tinyint(3) unsigned NOT NULL,
+  `hp` int(11) NOT NULL,
+  `shp` int(11) NOT NULL,
+  `hhp` int(11) NOT NULL,
+  `exp_nature` int(10) unsigned NOT NULL DEFAULT '0',
+  `exp_industry` int(10) unsigned NOT NULL DEFAULT '0',
+  `exp_combat` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ;
+
+
+
+CREATE TABLE IF NOT EXISTS `inventory` (
+  `id` int(11) NOT NULL,
+  `inv_id` int(11) NOT NULL,
+  `type` smallint(11) unsigned NOT NULL COMMENT 'тип вещи',
+  `q` smallint(11) unsigned NOT NULL DEFAULT '10' COMMENT 'качество',
+  `amount` smallint(11) unsigned NOT NULL DEFAULT '0' COMMENT 'количество (литры)',
+  `ticks_left` smallint(11) unsigned NOT NULL DEFAULT '0' COMMENT 'сколько осталось тиков',
+  `ticks` smallint(11) unsigned NOT NULL DEFAULT '0' COMMENT 'всего тиков надо для завершения',
+  `x` tinyint(11) unsigned NOT NULL COMMENT 'координата',
+  `y` tinyint(11) unsigned NOT NULL COMMENT 'координата',
+  `num` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT 'стадия. доп циферка у вещи',
+  PRIMARY KEY (`id`),
+  KEY `inv_id` (`inv_id`)
+) ;
+
+
+CREATE TABLE IF NOT EXISTS `log_login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `result` tinyint(4) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+)  ;
+
+
+
+CREATE TABLE IF NOT EXISTS `server` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `val_name` varchar(255) NOT NULL,
+  `val` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`val_name`)
+)  ;
+
+
+
+CREATE TABLE IF NOT EXISTS `sg_0` (
+  `id` int(11) unsigned NOT NULL,
+  `data` blob NOT NULL,
+  PRIMARY KEY (`id`)
+) ;
+
+
+
+CREATE TABLE IF NOT EXISTS `sg_obj_0` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `grid` int(1) unsigned NOT NULL,
+  `x` int(1) NOT NULL,
+  `y` int(1) NOT NULL,
+  `type` smallint(1) unsigned NOT NULL,
+  `hp` smallint(5) unsigned NOT NULL,
+  `shp` smallint(5) unsigned NOT NULL,
+  `data` blob NOT NULL,
+  `time` int(10) unsigned NOT NULL COMMENT 'время создания',
+  PRIMARY KEY (`id`),
+  KEY `grid` (`grid`)
+)  ;
